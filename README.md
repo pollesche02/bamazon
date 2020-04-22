@@ -1,1 +1,3 @@
-# bamazon
+# bamazon... With this shopping center, simply look at the different items for sale and pick what you would like to puchase. Once you have decided simply type in the item number and hit enter. After this you want to tell the program how many of that item you want to puchase then hit enter again. After this the program will deduct the amount you requested from inventory and give you what your total would be.  
+
+# I have provided screen shots of this working in my images folder.
