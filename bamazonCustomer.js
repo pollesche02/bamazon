@@ -57,16 +57,19 @@ function purchasePrompt() {
 };
 
 function purchaseOrder (ID, amtWanted){
-    connection.query('Select * from products where item_id = ' + ID, function(err, res){
+    console.log("ID of item I expect to see", ID);
+    console.log("quantity requested by user", amtWanted);
+    connection.query('Select * from products' , function(err, res){
         if(err) {console.log(err)};
         if(amtWanted <= res [0].stock_quanity) {
             var totalCost = res [0].price * amtWanted;
-            console.log("We will process your order now ! ");
-            console.log("Your total for" + amtWanted + " " + res[0].product_name + " is " + totalCost + " It's on its way to you now! ");
+            console.log("We will process your order now ! "); 
+    
+            console.log(" Your total for " + amtWanted + "  " + res[0].product_name + " is " + totalCost + " It's on its way to you now! ");
 
-            connection.query("update products = stock_quanity - " + amtWanted + "where item_id = " + ID);
+            connection.query("update products SET stock_quanity = stock_quanity - " + amtWanted + " where item_id = " + ID);
         } else {
-            console.log("We are sorry, we don't have that many of this item." + res[0].product_name + "Would you like a different item?")
+            console.log("We are sorry, we don't have that many of this item." + res[0].  product_name + "  Would you like a different")
         };
         displayProducts();
     });
